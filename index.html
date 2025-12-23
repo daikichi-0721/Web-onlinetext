@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>言語と文化</title>
+<link rel="stylesheet" href="text-style.css">
+</head>
+
+<body>
+<button class="menu-toggle floating-menu"
+        id="menuToggle"
+        aria-label="メニュー"
+        aria-expanded="false"
+        aria-controls="menuPanel">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+<header class="main-header">
+  <div class="header-inner">
+    <h1 class="site-title">Web制作用オンラインテキスト</h1>
+</header>
+
+<nav class="menu-panel" id="menuPanel" aria-hidden="true">
+  <div class="menu-head">
+    <div class="menu-title">章メニュー</div>
+    
+  </div>
+  <ul id="menuList"></ul>
+</nav>
+<!-- 背景クリックで閉じる用 -->
+<div class="menu-backdrop" id="menuBackdrop" hidden></div>
+
+<main class="container">
+<section id="はじめに" class="level2">
+<h2>1. はじめに</h2>
+<p>本研究は５年メカトロニクスコース（2025年度），和田研究室所属の松本大吉が国語教諭の坂井先生の依頼のもと作成したものになります．<br />
+本研究では、「言語と文化」科目において実施されている現地調査を伴うガイドブック作成課題で、従来はPDF形式による提出が主でしたが、「実際に訪れた場所をGoogleマップで確認できるようにしたい」などの依頼を受けました．そこで，PDFに代わるWeb形式でのガイドブック作成の可能性を探っています．<br />
+目的としては，授業内で作った文章を書くだけで，コーディングを必要としない．また，テンプレートを作成し学習目的の統一と作成に対するハードルを下げることです．事前のアンケートでは「なぜ自由にレイアウトを変更できないのか」という意見がありました．テンプレートを用いることで学習目的の統一（評価の公平性）を測っており，あくまでも「言語と文化」の課題なので調査内容・考察・表現の質そのものや，いろいろなツールで見やすくするために，今回はこのような目的をたて研究を行なっています．</p>
+</section>
+<section id="この教材でできること" class="level2">
+<h2>2. この教材でできること</h2>
+<p>この教材を読みながら作業を進めることで、”非エンジニア”でも次のことができるようになります．</p>
+<ul>
+<li><p>Markdown の基本的な書き方が理解できる</p></li>
+<li><p>Pandoc を使って Markdown → HTML に変換できる</p></li>
+<li><p>提供されているテンプレート（template.html /
+styles.css）を使い、デザインされた Web ページを生成できる</p></li>
+<li><p>画像や Google Map を Web ページに簡単に挿入できる</p></li>
+<li><p>調査内容や考察を Web で発信するための基礎が身につく</p></li>
+</ul>
+</section>
+<section id="必要なファイルと準備環境構築" class="level2">
+<h2>3. 必要なファイルと準備（環境構築）</h2>
+<section id="github-から教材ファイルをダウンロードする" class="level3">
+<h3>3.1 GitHub から教材ファイルをダウンロードする</h3>
+<ol type="1">
+<li><p>次のボタンをクリックして ZIP ファイルをダウンロードする．</p>
+<p><a
+href="https://github.com/daikichi-0721/sample/releases/download/v1.0/template.zip">📦
+Webテンプレート一式をダウンロード</a></p></li>
+<li><p>ダウンロードした ZIP を解凍し、任意のフォルダに展開する．
+例：デスクトップ上に <code>web-guidebook-main</code>
+というフォルダが作成される．</p></li>
+</ol>
+</section>
+<section id="pandoc-のインストール" class="level3">
+<h3>3.2 Pandoc のインストール</h3>
+<p>Windowsを使用する場合はインストールをしなくて大丈夫です．</p>
+<p>macOSを使用している場合は，下記のボタンをクリックしてください．（自動でダウンロードされます．）</p>
+<ol type="1">
+<li><p><a
+href="https://github.com/jgm/pandoc/releases/latest/download/pandoc-3.8.3-arm64-macOS.pkg">Pandocダウンロードリンク</a></p></li>
+<li><p>ダウンロードされたファイルを選択し，手順に従ってPamdocをインストールしてください．</p></li>
+</ol>
+</section>
+</section>
+<section id="作成手順" class="level2">
+<h2>4. 作成手順</h2>
+<p>記述内容・作成項目は言語と文化の授業内で指定を受けた内容について記述します．大まかな作成手順は</p>
+<ul>
+<li><p>Markdown（.md）に授業指定の内容を記述する．</p></li>
+<li><p>Pandoc（コマンド）を使用しHtmlを生成する．</p></li>
+</ul>
+<p>これだけです．授業内で考えた内容をテキストとして書き込むだけです．<br />
+コマンドを使用してHtmlファイルは上書きもできるので何度でも書き直しができます．</p>
+</section>
+<section id="作成上の注意" class="level2">
+<h2>5. 作成上の注意</h2>
+<p>Web作成のために書き込むファイルは以下の二つになります．</p>
+<ul>
+<li>page1.md</li>
+<li>page2-4.md</li>
+</ul>
+<p>上記二つの，Markdown（.md）ファイルはメモ帳やVScodeなどで開いてそこで作業，編集を行なってください．</p>
+<p>文章内で画像を挿入することができます．挿入したい画像はimagesフォルダーに入れるようにしてください．（後ほど詳しく説明します）</p>
+<p>また，私が作成したWebガイドブックのURLを<a
+href="https://daikichi-0721.github.io/sample-web/">こちら🔗</a>に．加えて，記述したMarkdownファイルを<a
+href="https://github.com/daikichi-0721/sample-web/releases/download/v1.0/sample_md.zip">こちら✒️</a>に用意しています．ぜひ参考にしながら作成してみてください．</p>
+</section>
+<section id="page1の作成" class="level2">
+<h2>6. page1の作成</h2>
+<p>ここではPage1の作成て順位ついて説明します．Page1では，授業指定に則り，表紙/使用テキスト/著者紹介について記述していただきます．（テキストの画像はクリックすることで拡大表示できます）</p>
+<p><img src="images/text-image1.png" /></p>
+<p>※VScodeでの画像のため見た目が異なる場合がありますが内容は変わりません．</p>
+<section id="タイトルの変更" class="level3">
+<h3>6.1 タイトルの変更</h3>
+<p>hero_line1,2,3は表紙となる場所のタイトルを書く場所になります．1,2,3と分けているのは，長いタイトルの場合にラインを分けてかけるようにするためです．１だけに書いても，２・３に書くだけでも問題ありません．自分の思う書き方を探してみてください．下に例の画像を添付しておきます．<br />
+⚠️「：」の後は半角スペースを空けてください．</p>
+<p><img src="images/text-image2.png" /><img
+src="images/text-image3.png" /></p>
+</section>
+<section id="使用テキストの変更" class="level3">
+<h3>6.2 使用テキストの変更</h3>
+<p>ここでは，使用テキストの情報を記述します．下記を参考にしてください．<br />
+⚠️「：」の後は半角スペースを空けてください． -
+author_name:「著者の名前」</p>
+<ul>
+<li><p>book_title:「作品名」</p></li>
+<li><p>book_excerpt:「使用テキストの名前」</p></li>
+<li><p>published:「初出」</p></li>
+</ul>
+<p>また，これらの例の画像を下記に添付しておきます．</p>
+<p><img src="images/text-image4.png" /><img
+src="images/text-image5.png" /></p>
+</section>
+<section id="著者の紹介" class="level3">
+<h3>6.3 著者の紹介</h3>
+<p>ここでは，著者の紹介について記述します．<br />
+⚠️「：」の後は半角スペースを空けてください．</p>
+<ul>
+<li>author_bio:「ここに著者の説明を書いてください．」</li>
+</ul>
+<p>下記に例の画像を添付しておきます．</p>
+<p><img src="images/text-image6.png" /><img
+src="images/text-image7.png" /></p>
+</section>
+<section id="画像の変更" class="level3">
+<h3>6.4 画像の変更</h3>
+<p>表紙の背景画像と使用テキストの本の画像，著者の紹介のアイコン画像を自分の使用したい画像に変更することができます．「images」というフォルダの中に決められた名前の画像を入れておくことで表示することができます．今回は２つのパターンでやり方を紹介します．</p>
+<p>１，画像ファイルの名前を指定の名前に合わす方法です．指定のファイル名は，background.jpg（表紙の背景画像），book.jpg(使用テキストの本の画像)，author.jpg（著者の紹介のアイコン画像）としてください．拡張子も間違えないようにしてください．
+※拡張子が異なる場合は変換を行なってください．</p>
+<p>２，もう一つのやり方は，画像のファイル名に合わしてマークダウンの方を変更するやり方です．「images/」の後に自分の用意した画像ファイルのファイル名を記入してください．拡張子も間違えないように記述してください．</p>
+</section>
+</section>
+<section id="page2-4の作成" class="level2">
+<h2>7. page2-4の作成</h2>
+<p>page2-4では，授業での指定に則り，作品紹介/引用と説明/地図，自由研究，考察と参考文献を記述します．タイトルは基本的に変更しなくていいように，こちらであらかじめ記入してあります．ここではマークダウンでの詳しい書き方について解説していきます．ある程度自由に書くことができるので，マークダウンの書き方を下記に記しているのでそれを参考に作成してみてください．</p>
+<section id="タイトルページ" class="level3">
+<h3>7.1 タイトル・ページ</h3>
+<p>「—」から「—」で囲まれている部分でページ数とタイトルを決定しています（配布ファイルに記述済み）．授業指定に則り，基本的には変更しないでください．<br />
+「title」はブラウザでのタブの名前の部分を変更することができます．変更したい場合は，「title:」の後を変更することで表示も変わります．</p>
+</section>
+<section id="ページの区切り" class="level3">
+<h3>7.2 ページの区切り</h3>
+<p>「＜！ーー PAGE_BREAK
+ーー＞」はpage2-4.mdをpage2.html，page3.html，page4.htmlとそれぞれ生成するために必要な記述になるので必ず書くようにしてください．（配布ファイルに記述済み）．<br />
+⚠️「＜！ーー PAGE_BREAK
+ーー＞」の前後には必ず１行ずつ空行を入れるよう注意してください．</p>
+<pre><code>&lt;!-- PAGE_BREAK --&gt;</code></pre>
+</section>
+<section id="題目" class="level3">
+<h3>7.3 題目</h3>
+<p>題目を書くときは，「##_」（_は半角スペース）と半角で記述してから表示したいものを書いてください．</p>
+<pre><code>## １，題目</code></pre>
+<pre><code>## ・題目</code></pre>
+</section>
+<section id="本文の記述" class="level3">
+<h3>7.4 本文の記述</h3>
+<p>本文の記述を題目の後に行なってください．<br />
+改行を行いたい場合は半角スペースを２つ行最後に入れてから改行してください．</p>
+<p>また，空行を１行入れて記述することで，この文のように少し行を離して表示することができます．</p>
+<p>今回のWebのレイアウトは左右半分づつに分かれているようなレイアウトになっています．ですが，本文の前に「＜！ーーwideーー＞」を入れると幅広く表示することができます．選んで使ってみてください．</p>
+<pre><code>&lt;!--wide--&gt;</code></pre>
+</section>
+<section id="googlemapの挿入" class="level3">
+<h3>7.5 GoogleMapの挿入</h3>
+<p>GoogleMapの挿入の仕方を画像とともに説明します．<br />
+１，Google Map を開いて自分の表示したい場所または経路を検索する．<br />
+２，「共有」→「地図を埋め込む」→「HTML をコピー」.<br />
+３，Markdown内にペーストしてください．また，前後に空行を入れてください．</p>
+<p><img src="images/1-1.png" /> <img src="images/1-2.png" /> <img
+src="images/1-3.png" /> <img src="images/1-4.png" /></p>
+<p>GoogleMapにおいても＜！ーーwideーー＞」を書くことで幅広く表示させることができます．</p>
+</section>
+<section id="画像の挿入の記述" class="level3">
+<h3>7.6 画像の挿入の記述</h3>
+<p>画像はimagesフォルダーに入れておいてください．記述方法は下記の「〜」の部分に自分の画像の名前を拡張子まで入れてください．<br />
+⚠️前後には必ず１行ずつ空行を入れるよう注意してください．</p>
+<pre><code>![](images/~)</code></pre>
+<p>また，画像挿入の記述を連続で書くことで，同じ場所で画像がスライドする表示にすることができます．</p>
+<pre><code>![](images/~)
+![](images/~)</code></pre>
+<p>画像においても「＜！ーーwideーー＞」を用いることで，本文の下に幅広く表示されます．下記の記述でできます．</p>
+<pre><code>&lt;!--wide--&gt;
+![](images/~)</code></pre>
+</section>
+<section id="urlの挿入" class="level3">
+<h3>7.7 URLの挿入</h3>
+<p>参考文献や，本文でも外部サイトをリンクとして入れたい場合の記述方法です．２つの方法を示します．文字やURLは自分のものに変更して使ってください．（今は仮でGoogleのリンクを入れています）</p>
+<p>１，リンク（<a href="https://www.google.com/?hl=ja"
+class="uri">https://www.google.com/?hl=ja</a>）　をこのように見えるように書く方法です．&lt;&gt;は半角で書くようにしてください．</p>
+<pre><code>リンク（&lt;https://www.google.com/?hl=ja&gt;）</code></pre>
+<p>２，<a
+href="https://www.google.com/?hl=ja">リンク</a>　というように文字をクリックすることでリンク先に飛ばす方法です．</p>
+<pre><code>[リンク](https://www.google.com/?hl=ja)</code></pre>
+</section>
+</section>
+<section id="htmlの作成" class="level2">
+<h2>8 Htmlの作成</h2>
+<p>新しく生成するときも．上書き保存したい場合も同じ手段で行います．作成されたHtmlをブラウザで開くことで閲覧できます．</p>
+<section id="windowsの場合" class="level3">
+<h3>8.1 Windowsの場合</h3>
+<p>make_html.batというファイルをダブルクリックするだけで．作成したMarkdown（.md）からpage1.html/page2.html/page3.html/page4.htmlが作成されます．</p>
+</section>
+<section id="macosの場合" class="level3">
+<h3>8.2 macOSの場合</h3>
+<p>１度だけ，ターミナルで下記のコマンドを入力して実行し．コマンドファイルに権限を与えます．</p>
+<pre><code>chmod +x run_pandoc.command</code></pre>
+<p>その後は，run_pandoc.commandというファイルをダブルクリックで大丈夫です．</p>
+</section>
+<section id="生成後" class="level3">
+<h3>8.3 生成後</h3>
+<p>HTMLファイルを開けばWebとして閲覧することができます．<br />
+また，コードを触れる方は，自分でコーディングして好みのWebを作り上げてください．</p>
+</section>
+</section>
+<section id="最後に" class="level2">
+<h2>9 最後に</h2>
+<p>今回は卒業研究としてこのプロジェクトに取り組んできました．まだまだ至らないところが多々ありますが，よろしければ付随のフォームにてご意見を寄せていただきますと幸いです．<br />
+　・<a
+href="https://forms.gle/TzopUpTkonESo5Pj6">フォームはこちら</a></p>
+</section>
+</main>
+
+
+<div id="lightbox">
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+</body>
+
+<script src="text.js"></script>
+</html>
